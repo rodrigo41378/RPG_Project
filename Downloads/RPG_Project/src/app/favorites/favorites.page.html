@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <h1 class="font-display text-base font-bold text-amber">Meus Favoritos</h1>
+    <button *ngIf="items.length" (click)="clearAll()" class="clear-btn">Limpar tudo</button>
+  </header>
+
+  <main class="page-body px-4">
+
+    <div class="fav-hero">
+      <div class="fav-icon-wrap">
+        <span class="material-symbols-outlined" style="font-size:44px;color:#f59e0b;font-variation-settings:'FILL' 1">bookmark</span>
+      </div>
+      <div>
+        <h2>Biblioteca Pessoal</h2>
+        <p>Seus registros salvos durante a jornada.</p>
+      </div>
+    </div>
+
+    <div *ngIf="items.length" class="count-row">
+      <span class="count-badge">{{ items.length }} favorito{{ items.length !== 1 ? 's' : '' }}</span>
+    </div>
+
+    <div *ngIf="items.length; else empty" class="fav-list">
+      <div *ngFor="let it of items" class="fav-card">
+        <div class="fav-left" (click)="open(it)">
+          <div class="fav-icon">
+            <span class="material-symbols-outlined" style="font-size:22px;color:#f59e0b;font-variation-settings:'FILL' 1">{{ typeIcon(it.type) }}</span>
+          </div>
+          <div>
+            <h3>{{ it.name || it.id }}</h3>
+            <span class="fav-type">{{ it.type }}</span>
+          </div>
+        </div>
+        <button (click)="remove(it)" class="remove-btn">
+          <span class="material-symbols-outlined" style="font-size:20px">delete_outline</span>
+        </button>
+      </div>
+    </div>
+
+    <ng-template #empty>
+      <div class="empty-box">
+        <span class="material-symbols-outlined" style="font-size:64px;color:#d97707;font-variation-settings:'FILL' 1">auto_stories</span>
+        <h3>Seu grimório está vazio</h3>
+        <p>Explore criaturas, reinos e tesouros. Os favoritos aparecem aqui.</p>
+      </div>
+    </ng-template>
+
+  </main>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

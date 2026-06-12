@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1c2b3c"/>
+      <stop offset="100%" stop-color="#051424"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#d9770720" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#bg)"/>
+  <rect width="200" height="200" fill="url(#glow)"/>
+  <!-- Dragon silhouette -->
+  <!-- Body -->
+  <ellipse cx="100" cy="120" rx="32" ry="22" fill="#1a3a28" opacity="0.9"/>
+  <!-- Head -->
+  <ellipse cx="138" cy="100" rx="18" ry="14" fill="#1a3a28"/>
+  <!-- Snout -->
+  <path d="M150 103 L166 108 L160 115 L148 110Z" fill="#1a3a28"/>
+  <!-- Eye -->
+  <ellipse cx="144" cy="97" rx="4" ry="3" fill="#d97707"/>
+  <ellipse cx="144" cy="97" rx="1.5" ry="2.5" fill="#051424"/>
+  <!-- Neck -->
+  <path d="M120 112 Q128 104 130 100" stroke="#1a3a28" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <!-- Tail -->
+  <path d="M70 125 Q50 135 38 128 Q30 120 42 115" stroke="#1a3a28" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M38 115 Q28 106 35 98" stroke="#1a3a28" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Wing left -->
+  <path d="M90 105 Q60 70 40 75 Q55 95 68 100Z" fill="#2a4a3a" opacity="0.85"/>
+  <path d="M90 105 Q70 85 55 88" stroke="#3a5a4a" stroke-width="1" fill="none"/>
+  <path d="M90 105 Q66 90 52 94" stroke="#3a5a4a" stroke-width="1" fill="none"/>
+  <!-- Wing right -->
+  <path d="M108 100 Q120 65 145 60 Q140 80 125 92Z" fill="#2a4a3a" opacity="0.85"/>
+  <path d="M108 100 Q122 72 140 68" stroke="#3a5a4a" stroke-width="1" fill="none"/>
+  <!-- Legs -->
+  <path d="M88 138 Q84 150 82 158" stroke="#1a3a28" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M82 158 Q78 162 86 160 Q82 165 90 163" stroke="#1a3a28" stroke-width="4" fill="none"/>
+  <path d="M112 140 Q116 152 118 160" stroke="#1a3a28" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <!-- Horns -->
+  <path d="M132 88 Q128 72 131 62" stroke="#d97707" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M144 84 Q144 68 148 58" stroke="#d97707" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Scales pattern -->
+  <path d="M95 118 Q100 115 105 118" stroke="#2a5a3a" stroke-width="1.5" fill="none"/>
+  <path d="M88 125 Q95 122 102 125 Q109 122 116 125" stroke="#2a5a3a" stroke-width="1.5" fill="none"/>
+  <!-- Flame -->
+  <path d="M162 110 Q172 100 168 90 Q164 98 158 95 Q166 85 162 76 Q156 86 150 84 Q158 76 153 68 Q145 80 148 90 Q140 82 143 74 Q133 84 138 95 Q130 89 134 80 Q124 92 132 103 Q126 99 128 92 Q118 104 126 115 Q122 112 124 106 Q116 118 125 126 Q135 130 148 124 Q158 118 162 110Z" fill="#d97707" opacity="0.7"/>
+  <path d="M158 108 Q165 100 162 93 Q158 100 153 98 Q160 91 156 84 Q150 93 153 102 Q147 96 150 88 Q142 97 148 107 Q143 104 145 98 Q137 109 145 118 Q154 122 162 116Z" fill="#f59e0b" opacity="0.8"/>
+  <!-- Ambient particles -->
+  <circle cx="48" cy="58" r="1.5" fill="#d97707" opacity="0.4"/>
+  <circle cx="160" cy="155" r="1" fill="#d97707" opacity="0.3"/>
+  <circle cx="35" cy="145" r="1" fill="#4a8a5a" opacity="0.4"/>
+  <circle cx="170" cy="70" r="2" fill="#f59e0b" opacity="0.2"/>
+</svg>

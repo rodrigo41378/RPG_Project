@@ -1,0 +1,43 @@
+ion-content { --background: #051424; --color: #d4e4fa; }
+.clear-btn {
+  background: transparent; border: 1px solid rgba(255,255,255,.1); color: rgba(212,228,250,.5);
+  font-size: 12px; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+}
+.fav-hero {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 0 16px;
+}
+.fav-icon-wrap {
+  width: 72px; height: 72px; border-radius: 20px; flex-shrink: 0;
+  background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.fav-hero h2 { margin: 0 0 4px; color: #fff; font-family: 'Newsreader',serif; font-size: 20px; font-weight: 700; }
+.fav-hero p  { margin: 0; color: rgba(212,228,250,.5); font-size: 13px; }
+.count-row { margin-bottom: 14px; }
+.count-badge {
+  background: rgba(217,119,7,.15); border: 1px solid rgba(217,119,7,.3);
+  color: #f59e0b; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+}
+.fav-list { display: flex; flex-direction: column; gap: 8px; }
+.fav-card {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 14px; border-radius: 16px;
+  background: rgba(13,28,45,.7); border: 1px solid rgba(255,255,255,.07);
+  transition: border-color .2s; &:hover { border-color: rgba(217,119,7,.3); }
+}
+.fav-left {
+  display: flex; align-items: center; gap: 12px; flex: 1; cursor: pointer;
+}
+.fav-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: rgba(245,158,11,.1); display: flex; align-items: center; justify-content: center;
+}
+.fav-card h3 { margin: 0 0 3px; color: #fff; font-size: 14px; font-weight: 600; }
+.fav-type { color: #f59e0b; font-size: 11px; font-weight: 700; text-transform: capitalize; }
+.remove-btn { background: none; border: none; color: rgba(239,68,68,.7); cursor: pointer; padding: 6px; }
+.empty-box {
+  text-align: center; padding: 60px 20px;
+  h3 { color: #fff; font-size: 18px; margin: 16px 0 8px; }
+  p  { color: rgba(212,228,250,.5); font-size: 14px; max-width: 260px; margin: auto; line-height: 1.65; }
+}

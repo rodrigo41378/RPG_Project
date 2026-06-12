@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="50%" stop-color="#051424"/>
+      <stop offset="100%" stop-color="#0d1c2d"/>
+    </linearGradient>
+    <radialGradient id="hmoon" cx="30%" cy="20%" r="15%">
+      <stop offset="0%" stop-color="#f5e4b5" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="hfire" cx="50%" cy="100%" r="50%">
+      <stop offset="0%" stop-color="#d97707" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#hsky)"/>
+  <rect width="400" height="300" fill="url(#hmoon)"/>
+  <rect width="400" height="300" fill="url(#hfire)"/>
+  <!-- Stars -->
+  <circle cx="20" cy="20" r="1" fill="white" opacity="0.7"/>
+  <circle cx="55" cy="12" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="90" cy="30" r="1" fill="white" opacity="0.5"/>
+  <circle cx="140" cy="15" r="1" fill="white" opacity="0.8"/>
+  <circle cx="180" cy="8" r="2" fill="white" opacity="0.5"/>
+  <circle cx="220" cy="18" r="1" fill="white" opacity="0.7"/>
+  <circle cx="270" cy="10" r="1" fill="white" opacity="0.6"/>
+  <circle cx="310" cy="22" r="1.5" fill="white" opacity="0.5"/>
+  <circle cx="350" cy="8" r="1" fill="white" opacity="0.7"/>
+  <circle cx="380" cy="28" r="1" fill="white" opacity="0.6"/>
+  <circle cx="45" cy="55" r="1" fill="white" opacity="0.4"/>
+  <circle cx="340" cy="45" r="1" fill="white" opacity="0.4"/>
+  <circle cx="8" cy="80" r="1" fill="#f59e0b" opacity="0.4"/>
+  <circle cx="395" cy="60" r="1" fill="#f59e0b" opacity="0.3"/>
+  <!-- Moon -->
+  <circle cx="110" cy="50" r="22" fill="#1a2a3a"/>
+  <circle cx="117" cy="45" r="20" fill="#020e1a"/>
+  <!-- Mountain range back -->
+  <path d="M0 240 Q50 180 100 200 Q140 170 175 190 Q210 160 250 185 Q285 165 320 180 Q355 155 400 170 L400 300 L0 300Z" fill="#0a1828" opacity="0.8"/>
+  <!-- Mountain range front -->
+  <path d="M0 270 Q40 230 80 248 Q115 220 150 238 Q180 215 215 235 Q250 210 285 228 Q315 205 355 222 Q375 212 400 220 L400 300 L0 300Z" fill="#0d1c2d"/>
+  <!-- Dragon silhouette in sky -->
+  <g opacity="0.4" fill="#1a2a3a">
+    <!-- Dragon body -->
+    <ellipse cx="280" cy="80" rx="25" ry="14"/>
+    <!-- Dragon head -->
+    <ellipse cx="305" cy="72" rx="13" ry="10"/>
+    <!-- Snout -->
+    <path d="M316 75 L328 79 L322 85Z"/>
+    <!-- Wing left -->
+    <path d="M270 72 Q248 52 232 58 Q245 68 258 73Z"/>
+    <!-- Wing right (folded) -->
+    <path d="M285 68 Q292 50 308 48 Q305 62 295 68Z"/>
+    <!-- Tail -->
+    <path d="M258 85 Q242 92 232 88 Q240 82 252 82Z"/>
+  </g>
+  <!-- Campfire -->
+  <ellipse cx="200" cy="268" rx="18" ry="5" fill="#3d0a00" opacity="0.6"/>
+  <!-- Logs -->
+  <path d="M188 265 L212 265" stroke="#3d1a00" stroke-width="4" stroke-linecap="round"/>
+  <path d="M192 268 L208 260" stroke="#3d1a00" stroke-width="3" stroke-linecap="round"/>
+  <!-- Fire -->
+  <path d="M200 265 Q195 252 198 242 Q201 250 205 245 Q203 255 207 248 Q209 256 206 263 Q203 257 200 265Z" fill="#d97707" opacity="0.9"/>
+  <path d="M200 263 Q197 254 199 247 Q201 253 203 249 Q204 255 202 262Z" fill="#f59e0b"/>
+  <path d="M199 262 Q196 255 198 250 Q199 255 201 261Z" fill="#fef3c7"/>
+  <!-- Fire glow on ground -->
+  <ellipse cx="200" cy="268" rx="30" ry="8" fill="#d97707" opacity="0.08"/>
+  <!-- Silhouette of adventurer sitting -->
+  <circle cx="175" cy="248" r="10" fill="#020e1a"/>
+  <path d="M165 258 Q170 265 180 268 Q175 265 175 260Z" fill="#020e1a"/>
+  <path d="M175 258 L165 272 Q170 270 175 268 L175 258Z" fill="#020e1a"/>
+  <path d="M175 258 L185 272 Q180 270 175 268 L175 258Z" fill="#020e1a"/>
+  <!-- Silhouette with sword -->
+  <path d="M182 245 L192 230" stroke="#020e1a" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Another adventurer standing -->
+  <circle cx="225" cy="238" r="9" fill="#020e1a"/>
+  <path d="M225 247 L225 270" stroke="#020e1a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M218 255 L232 255" stroke="#020e1a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M225 270 L218 285" stroke="#020e1a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M225 270 L232 285" stroke="#020e1a" stroke-width="5" stroke-linecap="round"/>
+  <!-- Cloak -->
+  <path d="M225 247 Q218 265 215 282 L235 282 Q232 265 225 247Z" fill="#0a1828" opacity="0.7"/>
+  <!-- Spear / staff -->
+  <path d="M236 240 L236 290" stroke="#020e1a" stroke-width="2" stroke-linecap="round"/>
+  <!-- Pennant on spear -->
+  <path d="M236 245 L246 250 L236 255Z" fill="#d97707" opacity="0.6"/>
+  <!-- Ruins arch in background -->
+  <path d="M50 280 L50 220 Q80 195 110 220 L110 280" fill="none" stroke="#0a1828" stroke-width="3"/>
+  <path d="M55 280 L55 222 Q80 200 105 222 L105 280" fill="#0a1828"/>
+  <!-- Fog/mist at bottom -->
+  <rect x="0" y="275" width="400" height="25" fill="url(#hsky)" opacity="0.5"/>
+</svg>

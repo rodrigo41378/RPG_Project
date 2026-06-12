@@ -1,0 +1,43 @@
+<nav class="bottom-nav">
+
+  <button
+    (click)="navigate('/home')"
+    [class.active-tab]="isActive('/home')"
+    class="nav-tab">
+    <span class="material-symbols-outlined">home</span>
+    <span>Início</span>
+  </button>
+
+  <button
+    (click)="navigate('/classes')"
+    [class.active-tab]="isActive('/classes')"
+    class="nav-tab">
+    <span class="material-symbols-outlined">swords</span>
+    <span>Classes</span>
+  </button>
+
+  <button
+    (click)="navigate('/bestiary')"
+    [class.active-tab]="isActive('/bestiary')"
+    class="nav-tab">
+    <span class="material-symbols-outlined">menu_book</span>
+    <span>Bestiário</span>
+  </button>
+
+  <button
+    (click)="navigate('/realms')"
+    [class.active-tab]="isActive('/realms')"
+    class="nav-tab">
+    <span class="material-symbols-outlined">public</span>
+    <span>Reinos</span>
+  </button>
+
+  <button
+    (click)="navigate('/profile')"
+    [class.active-tab]="isActive('/profile')"
+    class="nav-tab">
+    <span class="material-symbols-outlined">account_circle</span>
+    <span>Perfil</span>
+  </button>
+
+</nav>

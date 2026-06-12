@@ -1,0 +1,96 @@
+ion-content { --background: #051424; --color: #d4e4fa; }
+.icon-btn { background: none; border: none; color: #d4e4fa; padding: 8px; cursor: pointer; }
+.glass-card { background: rgba(13,28,45,.72); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.07); }
+.space-y-4 > * + * { margin-top: 14px; }
+
+/* Hero */
+.cat-hero {
+  position: relative; height: 300px; display: flex; align-items: flex-end;
+  overflow: hidden; justify-content: center;
+  &[data-type="criatura"] { background: linear-gradient(160deg,rgba(239,68,68,.2),rgba(5,20,36,.9)); }
+  &[data-type="classe"]   { background: linear-gradient(160deg,rgba(168,85,247,.2),rgba(5,20,36,.9)); }
+  &[data-type="reino"]    { background: linear-gradient(160deg,rgba(34,197,94,.15),rgba(5,20,36,.9)); }
+  &[data-type="arma"]     { background: linear-gradient(160deg,rgba(245,158,11,.2),rgba(5,20,36,.9)); }
+  &[data-type="magia"]    { background: linear-gradient(160deg,rgba(59,130,246,.2),rgba(5,20,36,.9)); }
+}
+.cat-hero-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; object-position: center center; opacity: 0.6;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.hero-icon {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%);
+  font-size: 110px; color: rgba(212,228,250,.1);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,transparent 30%,rgba(5,20,36,.95) 100%);
+}
+.hero-text {
+  position: relative; z-index: 2; padding: 0 20px 24px; width: 100%; box-sizing: border-box;
+}
+.type-pill {
+  display: inline-block; margin-bottom: 8px; padding: 4px 12px; border-radius: 999px;
+  background: #d97707; color: #432100; font-size: 11px; font-weight: 700; text-transform: uppercase;
+}
+.hero-text h2 { margin: 0 0 6px; color: #f59e0b; font-size: 2rem; font-weight: 800; }
+.hero-text p  { margin: 0; color: rgba(212,228,250,.7); font-size: 13px; line-height: 1.6; }
+
+/* Cards */
+.card-title {
+  display: flex; align-items: center; gap: 8px;
+  color: #f59e0b; font-family: 'Newsreader',serif; font-size: 17px; font-weight: 700; margin-bottom: 12px;
+}
+.card-body  { color: rgba(212,228,250,.75); font-size: 13px; line-height: 1.75; margin: 0; }
+.card-body strong { color: #fff; }
+.sub-label  { color: rgba(212,228,250,.4); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 10px; }
+
+/* Powers */
+.powers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.power-card {
+  padding: 14px; border-radius: 16px;
+  background: rgba(13,28,45,.72); border: 1px solid rgba(255,255,255,.07);
+}
+.power-ico { font-size: 26px; color: #f59e0b; display: block; margin-bottom: 6px; }
+.power-card h4 { margin: 0 0 4px; color: #fff; font-size: 13px; font-weight: 700; }
+.power-card p  { margin: 0; color: rgba(212,228,250,.6); font-size: 11px; line-height: 1.5; }
+
+/* Figures */
+.figure-row {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.04);
+  &:last-child { border-bottom: none; padding-bottom: 0; }
+}
+.figure-avatar {
+  width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;
+  background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.2);
+  display: flex; align-items: center; justify-content: center;
+}
+.figure-name { margin: 0 0 3px; color: #fff; font-size: 14px; font-weight: 600; }
+.figure-lore { margin: 0; color: rgba(212,228,250,.5); font-size: 12px; line-height: 1.5; }
+
+/* Related */
+.related-scroll {
+  display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px;
+  scrollbar-width: thin; scrollbar-color: #d97707 transparent;
+}
+.related-card {
+  flex-shrink: 0; width: 110px; border-radius: 14px; overflow: hidden; cursor: pointer;
+  background: rgba(13,28,45,.72); border: 1px solid rgba(255,255,255,.07);
+  transition: transform .15s; &:active { transform: scale(.95); }
+  p { margin: 0; padding: 8px 10px; color: #d4e4fa; font-size: 12px; font-weight: 600; }
+}
+.related-icon-area {
+  height: 70px; display: flex; align-items: center; justify-content: center;
+  background: rgba(5,20,36,.6);
+}
+
+.hero-svg-icon {
+  width: 80px; height: 80px;
+  color: rgba(212,228,250,.6);
+  filter: drop-shadow(0 0 16px rgba(212,228,250,.25));
+  position: relative; z-index: 2;
+  svg { width: 100%; height: 100%; }
+}

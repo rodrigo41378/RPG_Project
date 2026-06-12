@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="tbg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1c1a0d"/>
+      <stop offset="100%" stop-color="#051424"/>
+    </radialGradient>
+    <radialGradient id="tglow" cx="50%" cy="55%" r="35%">
+      <stop offset="0%" stop-color="#d97707" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#tbg)"/>
+  <rect width="200" height="200" fill="url(#tglow)"/>
+  <!-- Treasure chest base -->
+  <rect x="45" y="110" width="110" height="65" rx="6" fill="#3d2008"/>
+  <rect x="45" y="110" width="110" height="65" rx="6" fill="none" stroke="#7a4010" stroke-width="2"/>
+  <!-- Wood planks -->
+  <line x1="78" y1="110" x2="78" y2="175" stroke="#4a2810" stroke-width="1.5"/>
+  <line x1="122" y1="110" x2="122" y2="175" stroke="#4a2810" stroke-width="1.5"/>
+  <!-- Metal bands -->
+  <rect x="45" y="128" width="110" height="6" rx="1" fill="#7a5020" opacity="0.7"/>
+  <rect x="45" y="155" width="110" height="6" rx="1" fill="#7a5020" opacity="0.7"/>
+  <!-- Chest lid -->
+  <path d="M42 110 Q42 85 100 82 Q158 85 158 110Z" fill="#4a2808"/>
+  <path d="M42 110 Q42 85 100 82 Q158 85 158 110" stroke="#7a4010" stroke-width="2" fill="none"/>
+  <!-- Lid bands -->
+  <path d="M75 106 Q75 89 100 87 Q125 89 125 106" stroke="#7a5020" stroke-width="5" fill="none"/>
+  <!-- Lock -->
+  <rect x="88" y="105" width="24" height="16" rx="4" fill="#c8900a"/>
+  <path d="M94 105 Q94 96 100 96 Q106 96 106 105" stroke="#c8900a" stroke-width="4" fill="none"/>
+  <circle cx="100" cy="113" r="3" fill="#7a5010"/>
+  <!-- Gold coins spilling out -->
+  <ellipse cx="72" cy="115" rx="10" ry="5" fill="#d97707" opacity="0.9"/>
+  <ellipse cx="128" cy="112" rx="8" ry="4" fill="#f59e0b" opacity="0.9"/>
+  <ellipse cx="85" cy="108" rx="7" ry="3.5" fill="#d97707" opacity="0.8"/>
+  <ellipse cx="115" cy="107" rx="6" ry="3" fill="#f59e0b" opacity="0.8"/>
+  <!-- Gem on lid -->
+  <polygon points="100,62 110,74 100,80 90,74" fill="#3b82f6" opacity="0.9"/>
+  <polygon points="100,62 110,74 100,68" fill="#60a5fa" opacity="0.7"/>
+  <!-- Sparkles -->
+  <path d="M55 75 L57 70 L59 75 L57 80Z" fill="#f59e0b" opacity="0.7"/>
+  <path d="M53 75 L57 73 L61 75 L57 77Z" fill="#f59e0b" opacity="0.7"/>
+  <path d="M140 65 L142 60 L144 65 L142 70Z" fill="#60a5fa" opacity="0.6"/>
+  <path d="M138 65 L142 63 L146 65 L142 67Z" fill="#60a5fa" opacity="0.6"/>
+  <path d="M165 95 L167 91 L169 95 L167 99Z" fill="#d97707" opacity="0.5"/>
+  <path d="M163 95 L167 93 L171 95 L167 97Z" fill="#d97707" opacity="0.5"/>
+  <!-- Scattered coins -->
+  <ellipse cx="42" cy="145" rx="5" ry="2.5" fill="#d97707" opacity="0.6" transform="rotate(-20,42,145)"/>
+  <ellipse cx="162" cy="140" rx="5" ry="2.5" fill="#f59e0b" opacity="0.6" transform="rotate(15,162,140)"/>
+  <ellipse cx="38" cy="165" rx="4" ry="2" fill="#d97707" opacity="0.5" transform="rotate(10,38,165)"/>
+  <ellipse cx="167" cy="162" rx="4" ry="2" fill="#f59e0b" opacity="0.5" transform="rotate(-10,167,162)"/>
+  <!-- Glow from chest -->
+  <ellipse cx="100" cy="142" rx="50" ry="15" fill="#d97707" opacity="0.05"/>
+</svg>

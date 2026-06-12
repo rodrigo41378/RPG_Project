@@ -1,0 +1,102 @@
+ion-content { --background: #051424; --color: #d4e4fa; }
+.icon-btn { background: none; border: none; color: #d4e4fa; padding: 8px; cursor: pointer; }
+
+.filter-panel { padding: 8px 0; }
+.chips-scroll {
+  display: flex; gap: 8px; overflow-x: auto; padding: 4px 0;
+  scrollbar-width: thin; scrollbar-color: #d97707 transparent;
+}
+.chip {
+  flex-shrink: 0; padding: 6px 14px; border-radius: 999px;
+  background: rgba(13,28,45,.8); border: 1px solid rgba(255,255,255,.09);
+  color: rgba(212,228,250,.65); font-size: 12px; font-weight: 600; cursor: pointer;
+  &.chip-active { background: rgba(245,158,11,.15); border-color: rgba(245,158,11,.4); color: #f59e0b; }
+}
+
+.search-row {
+  display: flex; align-items: center; gap: 10px; margin-top: 12px;
+  background: rgba(13,28,45,.8); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 14px; padding: 10px 14px;
+}
+.search-input {
+  flex: 1; background: transparent; border: none; outline: none; color: #fff; font-size: 14px;
+  &::placeholder { color: rgba(212,228,250,.3); }
+}
+
+/* Featured card */
+.featured-card {
+  border-radius: 20px; overflow: hidden; cursor: pointer;
+  background: rgba(13,28,45,.7); border: 1px solid rgba(217,119,7,.25);
+  box-shadow: 0 0 32px rgba(217,119,7,.08); margin-bottom: 24px;
+  transition: transform .15s; &:active { transform: scale(.98); }
+}
+.featured-art {
+  height: 180px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg,rgba(217,119,7,.2),rgba(5,20,36,.85));
+}
+.featured-icon { display: none; }
+.featured-img-overlay {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; object-position: center top; opacity: 0.82; z-index: 2;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.featured-body { padding: 16px; }
+.featured-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+.feat-label { color: rgba(245,158,11,.7); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.featured-body h3 { color: #fff; font-size: 20px; font-weight: 700; margin: 0 0 8px; }
+.featured-body p  { color: rgba(212,228,250,.65); font-size: 13px; line-height: 1.6; margin: 0 0 10px; }
+.power-pill {
+  display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 11px; font-weight: 600;
+  background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.25); color: #4ade80;
+}
+
+/* Rarity badges */
+.rarity-badge {
+  font-size: 10px; font-weight: 700; text-transform: capitalize;
+  padding: 3px 10px; border-radius: 999px;
+}
+.rarity-comum     { background: rgba(100,116,139,.2); color: #94a3b8; border: 1px solid rgba(100,116,139,.3); }
+.rarity-incomum   { background: rgba(34,197,94,.15);  color: #4ade80; border: 1px solid rgba(34,197,94,.3);  }
+.rarity-raro      { background: rgba(59,130,246,.15);  color: #60a5fa; border: 1px solid rgba(59,130,246,.3);  }
+.rarity-épico     { background: rgba(168,85,247,.15);  color: #c084fc; border: 1px solid rgba(168,85,247,.3);  }
+.rarity-lendário  { background: rgba(245,158,11,.15);  color: #fbbf24; border: 1px solid rgba(245,158,11,.3);  }
+
+/* Section header */
+.section-hd { margin-bottom: 12px; }
+
+/* Treasure rows */
+.treasure-list { display: flex; flex-direction: column; gap: 10px; }
+
+.treasure-row {
+  display: flex; gap: 0; overflow: hidden;
+  background: rgba(13,28,45,.7); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 16px; cursor: pointer;
+  transition: transform .15s, border-color .2s;
+  &:active { transform: scale(.975); }
+  &:hover  { border-color: rgba(217,119,7,.35); }
+}
+.treasure-thumb {
+  width: 110px; min-width: 110px; height: 110px; display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: rgba(5,20,36,.7);
+  &[data-rarity="lendário"] { background: linear-gradient(135deg,rgba(245,158,11,.15),rgba(5,20,36,.8)); }
+  &[data-rarity="épico"]    { background: linear-gradient(135deg,rgba(168,85,247,.12),rgba(5,20,36,.8)); }
+  &[data-rarity="raro"]     { background: linear-gradient(135deg,rgba(59,130,246,.12),rgba(5,20,36,.8)); }
+}
+.treasure-img-overlay {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; object-position: center center; opacity: 0.85; z-index: 1;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.treasure-info { flex: 1; padding: 12px 14px; }
+.treasure-top  { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.treasure-info h4 { margin: 0; color: #fff; font-family: 'Newsreader',serif; font-size: 14px; font-weight: 700; }
+.treasure-info p  { margin: 0 0 6px; color: rgba(212,228,250,.6); font-size: 12px; line-height: 1.5; }
+.origin-text { color: rgba(212,228,250,.35); font-size: 11px; }
+
+.empty-box { text-align: center; padding: 60px 20px; color: rgba(212,228,250,.4); }

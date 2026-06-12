@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RPG_Manual</string>
+    <string name="title_activity_main">RPG_Manual</string>
+    <string name="package_name">com.RPG_Manual.app</string>
+    <string name="custom_url_scheme">com.RPG_Manual.app</string>
+</resources>

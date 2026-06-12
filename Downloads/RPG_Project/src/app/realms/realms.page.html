@@ -1,0 +1,119 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <div class="flex items-center gap-2">
+      <button (click)="goBack()" class="icon-btn"><span class="material-symbols-outlined">arrow_back</span></button>
+      <span class="material-symbols-outlined text-amber" style="font-variation-settings:'FILL' 1;font-size:22px">castle</span>
+      <h1 class="font-display text-base font-bold text-amber">Reinos &amp; Mitos</h1>
+    </div>
+    <button (click)="toggleSearch()" class="icon-btn">
+      <span class="material-symbols-outlined">{{ showSearch ? 'close' : 'search' }}</span>
+    </button>
+  </header>
+
+  <main class="page-body px-4">
+
+    <div *ngIf="showSearch" class="search-wrap">
+      <div class="search-row">
+        <span class="material-symbols-outlined" style="color:rgba(212,228,250,.35);font-size:20px">search</span>
+        <input [(ngModel)]="searchTerm" (input)="filterRegions()"
+               placeholder="Buscar regiões…" class="search-input" />
+      </div>
+    </div>
+
+    <!-- Hero texto -->
+    <div class="realm-hero">
+      <h2 class="font-display text-3xl font-bold text-white mb-2">Reinos &amp; <span class="text-amber">Mitologias</span></h2>
+      <p style="color:rgba(212,228,250,.55);font-size:13px;line-height:1.7;font-style:italic">
+        "No início, o Vácuo sussurrou as Primeiras Runas, e delas nasceram os pilares da existência."
+      </p>
+    </div>
+
+    <!-- Regiões -->
+    <section class="mb-6">
+      <div class="section-hd">
+        <h3 class="font-display text-lg font-semibold text-white">Regiões do Mundo</h3>
+        <span class="count-badge">{{ filteredRegions.length }}</span>
+      </div>
+
+      <div class="regions-list">
+        <div *ngFor="let region of filteredRegions"
+             (click)="openRegion(region)"
+             class="region-card">
+          <div class="region-art" [attr.data-type]="region.type">
+            <span class="material-symbols-outlined region-icon" style="font-variation-settings:'FILL' 1">
+              {{ regionIcon(region.type) }}
+            </span>
+            <img
+              *ngIf="region.imageUrl"
+              [src]="region.imageUrl"
+              [alt]="region.name"
+              class="region-img-overlay"
+              (error)="onImgError($event)"
+              loading="lazy"
+            />
+            <span class="region-type-pill">{{ region.type }}</span>
+          </div>
+          <div class="region-body">
+            <h4 class="font-display text-amber">{{ region.name }}</h4>
+            <p>{{ region.description }}</p>
+            <div class="inhabitants">
+              <span *ngFor="let h of region.inhabitants.slice(0,3)" class="tag-neutral">{{ h }}</span>
+            </div>
+            <div class="explore-btn">
+              <span class="material-symbols-outlined" style="font-size:16px">explore</span>
+              Explorar
+              <span class="material-symbols-outlined" style="font-size:16px">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="filteredRegions.length === 0" class="empty-box">
+        <span class="material-symbols-outlined" style="font-size:48px;color:#d97707">search_off</span>
+        <p>Nenhuma região encontrada.</p>
+      </div>
+    </section>
+
+    <!-- Panteão -->
+    <section>
+      <div class="section-hd"><h3 class="font-display text-lg font-semibold text-white">Panteão &amp; Mitos</h3></div>
+
+      <div class="deities-list">
+        <div *ngFor="let deity of deities"
+             (click)="openDeity(deity)"
+             class="deity-card">
+          <div class="deity-icon-wrap">
+            <span class="material-symbols-outlined" style="font-size:28px;color:#dec29a;font-variation-settings:'FILL' 1">
+              {{ deityIcon(deity.id) }}
+            </span>
+            <img
+              *ngIf="deity.imageUrl"
+              [src]="deity.imageUrl"
+              [alt]="deity.name"
+              class="deity-img-overlay"
+              (error)="onImgError($event)"
+              loading="lazy"
+            />
+          </div>
+          <div class="deity-info">
+            <h4 class="font-display">{{ deity.name }}</h4>
+            <span class="domain-badge">{{ deity.domain }}</span>
+            <p>{{ deity.description }}</p>
+            <div class="deity-footer">
+              <span class="alignment-tag">{{ deity.alignment }}</span>
+              <span class="ver-deity-btn">
+                Ver lore
+                <span class="material-symbols-outlined" style="font-size:14px">chevron_right</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

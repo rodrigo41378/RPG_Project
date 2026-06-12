@@ -1,0 +1,105 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <div class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-amber" style="font-variation-settings:'FILL' 1;font-size:22px">auto_stories</span>
+      <h1 class="font-display text-lg font-bold text-amber tracking-tighter">MANUAL ÉPICO</h1>
+    </div>
+    <button (click)="showSearch = !showSearch" class="icon-btn">
+      <span class="material-symbols-outlined">{{ showSearch ? 'close' : 'search' }}</span>
+    </button>
+  </header>
+
+  <div *ngIf="showSearch" class="px-4 pt-3 pb-1">
+    <div class="search-row">
+      <span class="material-symbols-outlined" style="color:rgba(212,228,250,0.35);font-size:20px">search</span>
+      <input [(ngModel)]="searchTerm" (input)="filterCategories()"
+             placeholder="Buscar categorias…"
+             class="search-input" />
+    </div>
+  </div>
+
+  <main class="page-body">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero-art">
+        <span class="material-symbols-outlined hero-icon" style="font-variation-settings:'FILL' 1">shield</span>
+        <div class="hero-rings">
+          <div class="ring ring1"></div>
+          <div class="ring ring2"></div>
+          <div class="ring ring3"></div>
+        </div>
+      </div>
+      <div class="hero-text-block">
+        <span class="hero-badge">✦ Aventura Começa</span>
+        <h2 class="font-display hero-title">O Início da sua<br><span class="text-amber">Jornada</span></h2>
+        <p class="hero-sub">Descubra segredos dos mundos fantásticos e torne-se o herói da sua própria história.</p>
+        <button (click)="scrollToCategories()" class="hero-btn">
+          Começar Agora
+          <span class="material-symbols-outlined" style="font-size:18px">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- O que é RPG -->
+    <section class="px-4 pb-2">
+      <div class="info-card">
+        <div class="info-title">
+          <span class="material-symbols-outlined" style="font-size:20px;color:#f59e0b">help_outline</span>
+          O que é RPG?
+        </div>
+        <p class="info-body">
+          Role-Playing Game é uma narrativa colaborativa onde você interpreta personagens num mundo de fantasia.
+          No Manual Épico, as regras são simples para você focar no que importa: a diversão.
+        </p>
+      </div>
+    </section>
+
+    <!-- Categorias -->
+    <section #categoriesSection class="px-4 pt-4">
+      <div class="section-header">
+        <span class="material-symbols-outlined text-amber" style="font-size:20px">explore</span>
+        <h3 class="font-display text-2xl font-semibold text-white">Categorias do Mundo</h3>
+      </div>
+
+      <div class="cats-grid">
+        <div *ngFor="let cat of filteredCategories"
+             (click)="openCategory(cat)"
+             class="cat-card">
+          <div class="cat-icon-area" [attr.data-type]="cat.type">
+            <!-- imagem real com object-fit: cover -->
+            <img
+              *ngIf="cat.imageUrl"
+              [src]="cat.imageUrl"
+              [alt]="cat.name"
+              class="cat-img-overlay"
+              (error)="onImgError($event)"
+              loading="lazy"
+            />
+          </div>
+          <div class="cat-body">
+            <div class="cat-badges">
+              <span class="type-badge type-{{ cat.type }}">{{ cat.type }}</span>
+              <span *ngIf="cat.tag" class="tag-badge">{{ cat.tag }}</span>
+            </div>
+            <h4 class="cat-name">{{ cat.name }}</h4>
+            <p class="cat-desc">{{ cat.description }}</p>
+            <div class="cat-btn">
+              Ver Mais <span class="material-symbols-outlined" style="font-size:16px">chevron_right</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="filteredCategories.length === 0" class="empty-box">
+        <span class="material-symbols-outlined" style="font-size:48px;color:#d97707">search_off</span>
+        <p>Nenhuma categoria encontrada.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

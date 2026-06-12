@@ -1,0 +1,81 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <div class="flex items-center gap-2">
+      <button (click)="back()" class="icon-btn"><span class="material-symbols-outlined">arrow_back</span></button>
+      <span class="material-symbols-outlined text-amber" style="font-variation-settings:'FILL' 1;font-size:22px">menu_book</span>
+      <h1 class="font-display text-base font-bold text-amber">Bestiário</h1>
+    </div>
+    <button (click)="toggleSearch()" class="icon-btn">
+      <span class="material-symbols-outlined">{{ showSearch ? 'close' : 'search' }}</span>
+    </button>
+  </header>
+
+  <main class="page-body">
+
+    <div *ngIf="showSearch" class="search-wrap">
+      <div class="search-row">
+        <span class="material-symbols-outlined" style="color:rgba(212,228,250,0.35);font-size:20px">search</span>
+        <input [(ngModel)]="searchTerm" (input)="filterCreatures()"
+               placeholder="Buscar criaturas…" class="search-input" />
+      </div>
+    </div>
+
+    <!-- Filtros de nível -->
+    <div class="chips-scroll">
+      <button *ngFor="let level of levels"
+              (click)="selectLevel(level)"
+              [class.chip-active]="selectedLevel === level"
+              class="chip">
+        {{ level }}
+      </button>
+    </div>
+
+    <!-- Lista -->
+    <div class="list-wrap">
+      <div *ngFor="let creature of filteredCreatures"
+           class="creature-card"
+           (click)="openCreature(creature)">
+
+        <!-- Arte da criatura: ícone + imagem sobreposta -->
+        <div class="creature-art" [attr.data-level]="creature.level">
+          <span class="material-symbols-outlined creature-icon" style="font-variation-settings:'FILL' 1">
+            {{ creatureIcon(creature) }}
+          </span>
+          <img
+            *ngIf="creature.imageUrl"
+            [src]="creature.imageUrl"
+            [alt]="creature.name"
+            class="creature-img-overlay"
+            (error)="onImgError($event)"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="creature-info">
+          <div class="creature-top">
+            <h3>{{ creature.name }}</h3>
+            <span class="lvl-badge lvl-{{ creature.level }}">{{ creature.level }}</span>
+          </div>
+          <p>{{ creature.description }}</p>
+          <div class="creature-footer">
+            <span class="xp-pill">{{ creature.xp }} XP</span>
+            <div class="weaknesses-row">
+              <span *ngFor="let w of creature.weaknesses.slice(0,2)" class="weak-tag">{{ w }}</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="filteredCreatures.length === 0" class="empty-box">
+        <span class="material-symbols-outlined" style="font-size:52px;color:#d97707">search_off</span>
+        <p>Nenhuma criatura encontrada.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

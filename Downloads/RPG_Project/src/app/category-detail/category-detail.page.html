@@ -1,0 +1,96 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <div class="flex items-center gap-2">
+      <button (click)="goBack()" class="icon-btn"><span class="material-symbols-outlined">arrow_back</span></button>
+      <h1 class="font-display text-base font-bold text-amber tracking-tight">MANUAL ÉPICO</h1>
+    </div>
+    <button (click)="toggleFavorite()" class="icon-btn"
+            [style.color]="isFavorite ? '#f59e0b' : '#d4e4fa'">
+      <span class="material-symbols-outlined"
+            [style.font-variation-settings]="isFavorite ? '\'FILL\' 1' : '\'FILL\' 0'">bookmark</span>
+    </button>
+  </header>
+
+  <main *ngIf="category" class="page-body">
+
+    <!-- Hero com ícone -->
+    <div class="cat-hero" [attr.data-type]="category.type">
+      <div class="hero-svg-icon" [innerHTML]="heroSvg()"></div>
+      <img
+        *ngIf="category.imageUrl"
+        [src]="category.imageUrl"
+        [alt]="category.name"
+        class="cat-hero-img"
+        (error)="onImgError($event)"
+        loading="lazy"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-text">
+        <span class="type-pill">{{ category.tag || category.type }}</span>
+        <h2 class="font-display">{{ category.name }}</h2>
+        <p>{{ category.description }}</p>
+      </div>
+    </div>
+
+    <div class="px-4 mt-5 space-y-4">
+
+      <!-- Origens -->
+      <div class="glass-card rounded-2xl p-5">
+        <div class="card-title">
+          <span class="material-symbols-outlined" style="font-size:20px">auto_stories</span>
+          Origens
+        </div>
+        <p class="card-body">{{ lore }}</p>
+      </div>
+
+      <!-- Poderes -->
+      <div>
+        <p class="sub-label">Habilidades &amp; Poderes</p>
+        <div class="powers-grid">
+          <div *ngFor="let power of powers" class="power-card">
+            <span class="material-symbols-outlined power-ico" style="font-variation-settings:'FILL' 1">{{ power.icon }}</span>
+            <h4>{{ power.name }}</h4>
+            <p>{{ power.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Figuras lendárias -->
+      <div class="glass-card rounded-2xl p-5">
+        <div class="card-title">
+          <span class="material-symbols-outlined" style="font-size:20px;color:#dec29a">person_celebrate</span>
+          <span style="color:#dec29a">Figuras Lendárias</span>
+        </div>
+        <div *ngFor="let f of legendaryFigures" class="figure-row">
+          <div class="figure-avatar">
+            <span class="material-symbols-outlined" style="font-size:20px;color:#f59e0b;font-variation-settings:'FILL' 1">{{ f.icon }}</span>
+          </div>
+          <div>
+            <p class="figure-name">{{ f.name }}</p>
+            <p class="figure-lore">{{ f.lore }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Relacionados -->
+      <div>
+        <p class="sub-label">Tópicos Relacionados</p>
+        <div class="related-scroll">
+          <div *ngFor="let r of relatedTopics" (click)="navigateTo(r.route)" class="related-card">
+            <div class="related-icon-area">
+              <span class="material-symbols-outlined" style="font-size:30px;color:rgba(212,228,250,.3);font-variation-settings:'FILL' 1">
+                {{ r.icon }}
+              </span>
+            </div>
+            <p>{{ r.name }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

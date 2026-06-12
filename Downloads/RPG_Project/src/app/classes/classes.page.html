@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <div class="flex items-center gap-2">
+      <button (click)="back()" class="icon-btn"><span class="material-symbols-outlined">arrow_back</span></button>
+      <span class="material-symbols-outlined text-amber" style="font-variation-settings:'FILL' 1;font-size:22px">manage_accounts</span>
+      <h1 class="font-display text-base font-bold text-amber">Classes</h1>
+    </div>
+  </header>
+
+  <main class="page-body px-4">
+
+    <section class="pt-2 pb-5">
+      <h2 class="font-display text-3xl font-bold text-white leading-tight mb-2">
+        Arquétipos de<br><span class="text-amber">Heróis</span>
+      </h2>
+      <p class="text-sm leading-relaxed" style="color:rgba(212,228,250,.55)">
+        Escolha a classe que define suas habilidades, papel no grupo e destino na aventura.
+      </p>
+    </section>
+
+    <div class="classes-grid">
+      <div *ngFor="let cls of classes"
+           (click)="selectClass(cls)"
+           class="class-card">
+        <div class="class-icon-area" [attr.data-color]="cls.colorKey">
+          <img
+            *ngIf="cls.imageUrl"
+            [src]="cls.imageUrl"
+            [alt]="cls.name"
+            class="class-img"
+            loading="lazy"
+          />
+        </div>
+        <div class="class-body">
+          <h3>{{ cls.name }}</h3>
+          <p>{{ cls.tagline }}</p>
+          <div class="class-tags">
+            <span *ngFor="let attr of cls.attributes" class="class-tag">{{ attr }}</span>
+          </div>
+          <div class="ver-mais-btn">
+            Ver Mais <span class="material-symbols-outlined" style="font-size:15px">chevron_right</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

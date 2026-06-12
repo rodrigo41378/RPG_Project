@@ -1,0 +1,109 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <div class="flex items-center gap-2">
+      <button (click)="back()" class="icon-btn"><span class="material-symbols-outlined">arrow_back</span></button>
+      <span class="material-symbols-outlined text-amber" style="font-variation-settings:'FILL' 1;font-size:22px">diamond</span>
+      <h1 class="font-display text-base font-bold text-amber">Tesouros &amp; Armas</h1>
+    </div>
+    <button (click)="toggleFilter()" class="icon-btn">
+      <span class="material-symbols-outlined">tune</span>
+    </button>
+  </header>
+
+  <main class="page-body px-4">
+
+    <!-- Filtro de raridade -->
+    <div *ngIf="showFilter" class="filter-panel">
+      <div class="chips-scroll">
+        <button *ngFor="let r of rarities"
+                (click)="selectRarity(r)"
+                [class.chip-active]="selectedRarity === r"
+                class="chip">{{ r }}</button>
+      </div>
+    </div>
+
+    <!-- Busca -->
+    <div class="search-row">
+      <span class="material-symbols-outlined" style="color:rgba(212,228,250,.35);font-size:20px">search</span>
+      <input [(ngModel)]="searchTerm" (input)="filterTreasures()"
+             placeholder="Buscar relíquias…" class="search-input" />
+    </div>
+
+    <!-- Header texto -->
+    <div class="pt-4 pb-2">
+      <h2 class="font-display text-3xl font-bold text-white leading-tight mb-1">
+        Relíquias do<br><span class="text-amber">Mundo Antigo</span>
+      </h2>
+      <p style="color:rgba(212,228,250,.5);font-size:13px">{{ filteredTreasures.length }} artefatos catalogados</p>
+    </div>
+
+    <!-- Destaque -->
+    <div *ngIf="featuredTreasure" (click)="openTreasure(featuredTreasure)" class="featured-card">
+      <div class="featured-art">
+        <span class="material-symbols-outlined featured-icon" style="font-variation-settings:'FILL' 1">
+          {{ treasureIcon(featuredTreasure) }}
+        </span>
+        <img
+          *ngIf="featuredTreasure.imageUrl"
+          [src]="featuredTreasure.imageUrl"
+          [alt]="featuredTreasure.name"
+          class="featured-img-overlay"
+          (error)="onImgError($event)"
+          loading="lazy"
+        />
+      </div>
+      <div class="featured-body">
+        <div class="featured-top">
+          <p class="feat-label">✦ Artefato em Destaque</p>
+          <span class="rarity-badge rarity-lendário">Lendário</span>
+        </div>
+        <h3 class="font-display">{{ featuredTreasure.name }}</h3>
+        <p>{{ featuredTreasure.description }}</p>
+        <span class="power-pill">{{ featuredTreasure.power }}</span>
+      </div>
+    </div>
+
+    <!-- Lista -->
+    <div class="section-hd">
+      <h3 class="font-display text-lg font-semibold text-white">Todos os Artefatos</h3>
+    </div>
+
+    <div class="treasure-list">
+      <div *ngFor="let t of filteredTreasures"
+           (click)="openTreasure(t)"
+           class="treasure-row">
+        <div class="treasure-thumb" [attr.data-rarity]="t.rarity">
+          <span class="material-symbols-outlined" style="font-size:32px;color:rgba(212,228,250,.25);font-variation-settings:'FILL' 1">
+            {{ treasureIcon(t) }}
+          </span>
+          <img
+            *ngIf="t.imageUrl"
+            [src]="t.imageUrl"
+            [alt]="t.name"
+            class="treasure-img-overlay"
+            (error)="onImgError($event)"
+            loading="lazy"
+          />
+        </div>
+        <div class="treasure-info">
+          <div class="treasure-top">
+            <h4>{{ t.name }}</h4>
+            <span class="rarity-badge rarity-{{ t.rarity }}">{{ t.rarity }}</span>
+          </div>
+          <p>{{ t.description }}</p>
+          <span class="origin-text">{{ t.origin }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="filteredTreasures.length === 0" class="empty-box">
+      <span class="material-symbols-outlined" style="font-size:48px;color:#d97707">search_off</span>
+      <p>Nenhum artefato encontrado.</p>
+    </div>
+
+  </main>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

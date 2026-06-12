@@ -1,0 +1,117 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+
+  <header class="page-header">
+    <div class="flex items-center gap-2">
+      <button (click)="back()" class="icon-btn"><span class="material-symbols-outlined">arrow_back</span></button>
+      <h1 class="font-display text-sm font-bold text-amber truncate">{{ item?.name || 'Detalhe' }}</h1>
+    </div>
+    <button (click)="toggleFavorite()" class="icon-btn"
+            [style.color]="isFavorite ? '#f59e0b' : '#d4e4fa'">
+      <span class="material-symbols-outlined"
+            [style.font-variation-settings]="isFavorite ? '\'FILL\' 1' : '\'FILL\' 0'">bookmark</span>
+    </button>
+  </header>
+
+  <main *ngIf="item" class="page-body px-4">
+
+    <!-- Hero banner com imagem -->
+    <div class="detail-banner" [attr.data-type]="type">
+      <span class="material-symbols-outlined banner-icon" style="font-variation-settings:'FILL' 1">
+        {{ getIcon() }}
+      </span>
+      <img
+        *ngIf="item?.imageUrl"
+        [src]="item.imageUrl"
+        [alt]="item.name"
+        class="banner-img-overlay"
+        (error)="onImgError($event)"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Nome e tipo -->
+    <div class="mt-5 mb-5">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="type-badge">{{ type }}</span>
+        <span *ngIf="item.rarity || item.level" class="rarity-badge rarity-{{ item.rarity || item.level }}">
+          {{ item.rarity || item.level }}
+        </span>
+      </div>
+      <h2 class="font-display text-3xl font-bold text-white mb-3">{{ item.name }}</h2>
+      <p class="desc-text">{{ item.description }}</p>
+    </div>
+
+    <!-- Campos específicos por tipo -->
+    <div class="space-sections">
+
+      <!-- Criatura: fraquezas + táticas -->
+      <ng-container *ngIf="type === 'creature'">
+        <div class="info-card">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">flash_on</span>XP</h3>
+          <p class="big-value">{{ item.xp }}</p>
+        </div>
+        <div class="info-card" *ngIf="item.weaknesses?.length">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">broken_image</span>Fraquezas</h3>
+          <div class="tags-row">
+            <span *ngFor="let w of item.weaknesses" class="tag-danger">{{ w }}</span>
+          </div>
+        </div>
+        <div class="info-card" *ngIf="item.tactics?.length">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">strategy</span>Táticas de Combate</h3>
+          <div class="tactics-list">
+            <div *ngFor="let t of item.tactics" class="tactic-row">
+              <span class="material-symbols-outlined" style="font-size:16px;color:#f59e0b">chevron_right</span>
+              <span>{{ t }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Tesouro: poder + origem -->
+      <ng-container *ngIf="type === 'treasure'">
+        <div class="info-card" *ngIf="item.power">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">bolt</span>Poder</h3>
+          <p class="desc-text">{{ item.power }}</p>
+        </div>
+        <div class="info-card" *ngIf="item.origin">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">location_on</span>Origem</h3>
+          <p class="desc-text">{{ item.origin }}</p>
+        </div>
+      </ng-container>
+
+      <!-- Região: habitantes -->
+      <ng-container *ngIf="type === 'region'">
+        <div class="info-card" *ngIf="item.inhabitants?.length">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">groups</span>Habitantes</h3>
+          <div class="tags-row">
+            <span *ngFor="let h of item.inhabitants" class="tag-neutral">{{ h }}</span>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Deidade: domínio + alinhamento -->
+      <ng-container *ngIf="type === 'deity'">
+        <div class="info-card">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">flare</span>Domínio</h3>
+          <p class="big-value">{{ item.domain }}</p>
+        </div>
+        <div class="info-card">
+          <h3 class="card-label"><span class="material-symbols-outlined" style="font-size:18px">balance</span>Alinhamento</h3>
+          <p class="desc-text">{{ item.alignment }}</p>
+        </div>
+      </ng-container>
+
+    </div>
+
+  </main>
+
+  <!-- Estado vazio -->
+  <div *ngIf="!item" class="empty-state">
+    <span class="material-symbols-outlined" style="font-size:64px;color:#d97707">search_off</span>
+    <h3>Item não encontrado</h3>
+    <button (click)="back()" class="back-btn">Voltar</button>
+  </div>
+
+  <app-bottom-nav></app-bottom-nav>
+
+</ion-content>

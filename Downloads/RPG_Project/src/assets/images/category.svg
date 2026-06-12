@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="cbg" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#1a1628"/>
+      <stop offset="100%" stop-color="#051424"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#cbg)"/>
+  <!-- Open book base -->
+  <path d="M20 70 Q20 60 30 58 Q65 52 98 68 L98 158 Q65 142 30 148 Q20 150 20 140Z" fill="#2a1808"/>
+  <path d="M180 70 Q180 60 170 58 Q135 52 102 68 L102 158 Q135 142 170 148 Q180 150 180 140Z" fill="#2a1808"/>
+  <!-- Book spine -->
+  <rect x="96" y="66" width="8" height="94" rx="2" fill="#4a2808"/>
+  <!-- Page lines left -->
+  <line x1="38" y1="82" x2="90" y2="78" stroke="#d97707" stroke-width="1" opacity="0.5"/>
+  <line x1="38" y1="91" x2="90" y2="88" stroke="#4a3020" stroke-width="0.8" opacity="0.6"/>
+  <line x1="38" y1="100" x2="90" y2="97" stroke="#4a3020" stroke-width="0.8" opacity="0.6"/>
+  <line x1="38" y1="109" x2="90" y2="107" stroke="#4a3020" stroke-width="0.8" opacity="0.5"/>
+  <line x1="38" y1="118" x2="90" y2="116" stroke="#4a3020" stroke-width="0.8" opacity="0.5"/>
+  <line x1="38" y1="127" x2="90" y2="125" stroke="#4a3020" stroke-width="0.8" opacity="0.4"/>
+  <line x1="38" y1="136" x2="90" y2="135" stroke="#4a3020" stroke-width="0.8" opacity="0.4"/>
+  <!-- Page lines right -->
+  <line x1="110" y1="78" x2="162" y2="82" stroke="#d97707" stroke-width="1" opacity="0.5"/>
+  <line x1="110" y1="88" x2="162" y2="91" stroke="#4a3020" stroke-width="0.8" opacity="0.6"/>
+  <line x1="110" y1="97" x2="162" y2="100" stroke="#4a3020" stroke-width="0.8" opacity="0.6"/>
+  <line x1="110" y1="107" x2="162" y2="109" stroke="#4a3020" stroke-width="0.8" opacity="0.5"/>
+  <line x1="110" y1="116" x2="162" y2="118" stroke="#4a3020" stroke-width="0.8" opacity="0.5"/>
+  <line x1="110" y1="125" x2="162" y2="127" stroke="#4a3020" stroke-width="0.8" opacity="0.4"/>
+  <line x1="110" y1="135" x2="162" y2="136" stroke="#4a3020" stroke-width="0.8" opacity="0.4"/>
+  <!-- Illuminated initial left page -->
+  <rect x="36" y="76" width="24" height="28" rx="2" fill="#1a1208" stroke="#d97707" stroke-width="1" opacity="0.8"/>
+  <text x="48" y="95" font-size="18" font-family="serif" fill="#d97707" text-anchor="middle" opacity="0.9">M</text>
+  <!-- Decorative flourish -->
+  <path d="M38 92 Q50 96 62 92" stroke="#d97707" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <!-- Right page illustration - rune circle -->
+  <circle cx="136" cy="108" r="22" fill="none" stroke="#d97707" stroke-width="1" opacity="0.4"/>
+  <circle cx="136" cy="108" r="16" fill="none" stroke="#7a5020" stroke-width="0.8" opacity="0.5"/>
+  <!-- Rune symbols -->
+  <text x="136" y="96" font-size="10" fill="#d97707" text-anchor="middle" opacity="0.7">ᚱ</text>
+  <text x="148" y="113" font-size="10" fill="#d97707" text-anchor="middle" opacity="0.6">ᚷ</text>
+  <text x="136" y="128" font-size="10" fill="#d97707" text-anchor="middle" opacity="0.7">ᚨ</text>
+  <text x="124" y="113" font-size="10" fill="#d97707" text-anchor="middle" opacity="0.6">ᚠ</text>
+  <!-- Quill pen -->
+  <path d="M155 50 Q165 40 175 35 Q170 48 160 55 Q168 45 172 38 Q165 50 155 56Z" fill="#d4c89a"/>
+  <path d="M155 56 Q148 68 145 80 Q150 72 155 65 Q148 72 145 82" stroke="#8a7840" stroke-width="1.5" fill="none"/>
+  <path d="M145 82 L142 92" stroke="#2a1808" stroke-width="2"/>
+  <!-- Ink drop -->
+  <ellipse cx="141" cy="95" rx="3" ry="4" fill="#0a1a2a" opacity="0.7"/>
+  <!-- Bookmark ribbon -->
+  <path d="M88 158 L88 178 L82 170 L76 178 L76 158" fill="#8a1010"/>
+  <!-- Book cover texture lines -->
+  <path d="M22 90 Q25 85 26 80" stroke="#3a2010" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <path d="M174 85 Q177 90 178 95" stroke="#3a2010" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <!-- Sparkle on book -->
+  <path d="M55 55 L57 50 L59 55 L57 60Z" fill="#f59e0b" opacity="0.5"/>
+  <path d="M53 55 L57 53 L61 55 L57 57Z" fill="#f59e0b" opacity="0.5"/>
+</svg>
